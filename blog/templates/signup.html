@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Signup</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Start of Nav -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Vd's Blog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="/">Blog</a>
+                    <a class="nav-item nav-link" href="/create">Create Post</a>
+                </div>
+            </div>
+        </nav>
+        <!-- End of Nav -->
+        <br><br><br>
+        <!-- Start of Signup form -->
+        <form action="/signup/" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="">First Name</label>
+                <input class="form-control" name="fname" type="text"></input>
+            </div>
+            <div class="form-group">
+                <label for="">Last Name</label>
+                <input class="form-control" name="lname" type="text"></input>
+            </div>
+            <div class="form-group">
+                <label for="">Username</label>
+                <input class="form-control" name="username" type="username"></input>
+            </div>
+            <div class="form-group">
+                <label for="">Email</label>
+                <input class="form-control" name="email" type="email"></input>
+            </div>
+            <div class="form-group">
+                <label for="">Choose a Password</label>
+                <input class="form-control" name="password" type="password"></input>
+            </div>
+            <button type="submit" class="btn btn-md btn-danger">Signup</button>
+        </form>
+
+    </div>
+</body>
+
+</html>
