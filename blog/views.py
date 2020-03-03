@@ -11,8 +11,10 @@ def home(request):
 
 
 def blog_catalog(request):
-    print("Current User:", request.user)
-    all_posts = BlogPost.objects.all()
+    if request.user.is_authenticated:
+        all_posts = BlogPost.objects.filter(author=request.user)
+    else:
+        all_posts = BlogPost.objects.all()
     return render(request, "all_posts.html", {"all_posts": all_posts})
 
 
@@ -22,10 +24,14 @@ def post_page(request, post_id):
 
 
 def create_post(request):
+
+    if not request.user.is_authenticated:
+        return redirect("/login")
+
     if request.method == "POST":
         title = request.POST.get('title')
         content = request.POST.get('content')
-        author = request.POST.get('author')
+        author = request.user
 
         blog = BlogPost.objects.create(title=title,
                                        content=content,
